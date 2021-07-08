@@ -8,22 +8,22 @@ class menu extends Phaser.Scene {
         this.load.audio('background', './assets/background.mp3');
         
         // load image
-        // this.load.image('menu', './assets/Menu.png');
+        this.load.image('start', './assets/start.png');
     }
 
     create() {
+        keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         this.sound.play('background'); //background music
 
         // place menu
-        this.menu = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'menu').setOrigin(0, 0);
-        // define keys
-        // keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-        this.scene.start('Scene1');
+        this.start = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'start').setOrigin(0, 0);
+        
+
     }
 
     update() {
-        // this.scene.start('Scene1');
+        if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
+            this.scene.start('Scene1');
+        }
     }
-
-
-  }
+}
