@@ -12,13 +12,16 @@ class Scene1 extends Phaser.Scene {
     create() {
         
         // place menu
-        this.ground = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'background').setOrigin(0, 1);
+        this.ground = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'background').setOrigin(0, 0);
+        
         // define keys
         keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
     }
 
     update() {
+        this.ground.tilePositionX -= 5;
     }
+
 
 
   }
