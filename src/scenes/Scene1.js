@@ -21,7 +21,7 @@ class Scene1 extends Phaser.Scene {
     update() {
         this.background.tilePositionX -= 5;
         if (Phaser.Input.Keyboard.JustDown(keyR)) {
-            this.scene.start('menuScene');
+            this.scene.start('Scene1');
         }
     }
 
