@@ -17,7 +17,7 @@ class Scene1 extends Phaser.Scene {
         this.gamespeed = 3;
         this.background = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'background').setOrigin(0, 0);
         this.ground = this.add.tileSprite(0, game.config.height, game.config.width, 26, 'road').setOrigin(0,1);
-        this.character = this.physics.add.sprite(0, game.config.height, 'character');
+        this.character = this.physics.add.sprite(120, 672, 'character').setScale(0.2);
     } 
 
     update() {
