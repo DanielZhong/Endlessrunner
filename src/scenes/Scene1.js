@@ -19,12 +19,16 @@ class Scene1 extends Phaser.Scene {
     }
 
     create() {
+        this.level = 70;
         this.gamespeed = 3;
         this.background = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'background').setOrigin(0, 0);
         this.ground = this.add.tileSprite(0, game.config.height, game.config.width, 26, 'road').setOrigin(0,1);
         this.character = this.physics.add.sprite(120, 630, 'character').setScale(0.3);
-        this.block = this.physics.add.sprite(1200, 670, 'block').setScale(0.3);
+
+        
+
     } 
+  
 
     update() {
         this.background.tilePositionX += this.gamespeed;
@@ -32,6 +36,15 @@ class Scene1 extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(keyR)) {
             this.scene.start('Scene1');
         }
+        if(1 == Phaser.Math.RND.integerInRange(1, 80)){
+            this.block = this.physics.add.sprite(1000, 660, 'block').setScale(0.5);
+            this.block.body.setVelocityX(- this.level);
+            // this.cloud02 = this.physics.add.sprite(200, 200, 'block').setScale(0.5);
+            // this.cloud02.body.setVelocityX(-45);
+        }
+        
+        
+        
     }
 
 
