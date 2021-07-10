@@ -50,13 +50,13 @@ class Scene1 extends Phaser.Scene {
         }
         
         if(this.checkCollision(this.character, this.block)) {
-            this.block.reset();
+            this.scene.start('over');
         }
         if (this.checkCollision(this.character, this.block2)) {
-            this.block2.reset();
+            this.scene.start('over');
         }
         if (this.checkCollision(this.p1Rocket, this.block3)) {
-            this.block3.reset();
+            this.scene.start('over');
         }
         
         checkCollision(character, block) {

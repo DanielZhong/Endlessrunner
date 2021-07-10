@@ -1,6 +1,6 @@
 class over extends Phaser.Scene {
     constructor() {
-        super("Over");
+        super("over");
     }
 
     preload() {
