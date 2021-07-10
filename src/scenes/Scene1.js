@@ -49,27 +49,27 @@ class Scene1 extends Phaser.Scene {
             this.block3.body.setVelocityX(- this.level);
         }
         
-        if(this.checkCollision(this.character, this.block)) {
-            this.scene.start('over');
-        }
-        if (this.checkCollision(this.character, this.block2)) {
-            this.scene.start('over');
-        }
-        if (this.checkCollision(this.p1Rocket, this.block3)) {
-            this.scene.start('over');
-        }
+        // if(this.checkCollision(this.character, this.block)) {
+        //     this.scene.start('over');
+        // }
+        // if (this.checkCollision(this.character, this.block2)) {
+        //     this.scene.start('over');
+        // }
+        // if (this.checkCollision(this.p1Rocket, this.block3)) {
+        //     this.scene.start('over');
+        // }
         
-        checkCollision(character, block) {
-            if (character.x < block.x + block.width && 
-                character.x + character.width > block.x && 
-                character.y < block.y + block.height &&
-                character.height + character.y > block. y) {
-                    return true;
-            } 
-            else {
-                return false;
-            }
-        }
+        // checkCollision(character, block) {
+        //     if (character.x < block.x + block.width && 
+        //         character.x + character.width > block.x && 
+        //         character.y < block.y + block.height &&
+        //         character.height + character.y > block. y) {
+        //             return true;
+        //     } 
+        //     else {
+        //         return false;
+        //     }
+        // }
         
         
     }
