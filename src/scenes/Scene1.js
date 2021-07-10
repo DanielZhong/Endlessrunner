@@ -33,7 +33,7 @@ class Scene1 extends Phaser.Scene {
         this.ground = this.physics.add.sprite(0, game.config.height - 30, 'road').setOrigin(0,0);
         this.ground.body.immovable = true;
         this.ground.body.allowGravity = false;
-        this.character = this.physics.add.sprite(120, 600, 'character').setScale(0.3);
+        this.character = this.physics.add.sprite(120, 600, 'character').setScale(0.4);
         this.character.setMaxVelocity(this.MAX_X_VEL, this.MAX_Y_VEL);
         this.character.setCollideWorldBounds(true);
         cursors = this.input.keyboard.createCursorKeys();
