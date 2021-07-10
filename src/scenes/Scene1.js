@@ -41,9 +41,7 @@ class Scene1 extends Phaser.Scene {
 
         //score
         this.score = 0;
-        this.scoreText = this.add.text(game.config.width, 0, "00000", {fill: "#535353", font: '900 35px Courier', resolution: 5})
-      .setOrigin(1, 0)
-      .setAlpha(0);
+        this.scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
     } 
   
 
@@ -52,6 +50,8 @@ class Scene1 extends Phaser.Scene {
         this.ground.tilePositionX += this.gamespeed;
         this.gamespeed += 0.003;
         this.level += 0.2;
+        this.score += 1;
+        this.scoreText.setText('Score: ' + this.score);
         
         if (Phaser.Input.Keyboard.JustDown(keyR)) {
             this.scene.start('Scene1');
