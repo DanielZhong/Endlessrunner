@@ -12,6 +12,7 @@ class Scene1 extends Phaser.Scene {
         this.load.image('block', './assets/block.png');
         this.load.image('vblock1', './assets/verticalblock2.png');
         this.load.image('vblock2', './assets/verticalblock3.png');
+        this.load.audio('jump', './assets/jump.wav');
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
     }
@@ -81,7 +82,7 @@ class Scene1 extends Phaser.Scene {
             // set acceleration to 0 so DRAG will take over
             this.character.body.setAccelerationX(0);
             this.character.body.setDragX(this.DRAG);
-            //this.alien.anims.play('idle');
+            
         }
         // check if alien is grounded
 	    this.character.isGrounded = this.character.body.touching.down;
@@ -95,32 +96,35 @@ class Scene1 extends Phaser.Scene {
 	        this.character.body.velocity.y = this.JUMP_VELOCITY;
 	        this.jumping = true;
 	    }
-        // finally, letting go of the UP key subtracts a jump
+
 	    if(this.jumping && Phaser.Input.Keyboard.UpDuration(cursors.up)) {
 	    	this.jumps--;
 	    	this.jumping = false;
+            this.sound.play('jump'); //background music
 	    }
-        /*if(this.checkCollision(this.character, this.block)) {
-            this.scene.start('over');
-        }
-        if (this.checkCollision(this.character, this.block2)) {
-            this.scene.start('over');
-        }
-        if (this.checkCollision(this.p1Rocket, this.block3)) {
-            this.scene.start('over');
-        }
+
+
+        // if(this.checkCollision(this.character, this.block)) {
+        //     this.scene.start('over');
+        // }
+        // if (this.checkCollision(this.character, this.block2)) {
+        //     this.scene.start('over');
+        // }
+        // if (this.checkCollision(this.p1Rocket, this.block3)) {
+        //     this.scene.start('over');
+        // }
         
-        checkCollision(character, block) {
-            if (character.x < block.x + block.width && 
-                character.x + character.width > block.x && 
-                character.y < block.y + block.height &&
-                character.height + character.y > block. y) {
-                    return true;
-            } 
-            else {
-                return false;
-            }
-        }*/
+        // checkCollision(character, block) {
+        //     if (character.x < block.x + block.width && 
+        //         character.x + character.width > block.x && 
+        //         character.y < block.y + block.height &&
+        //         character.height + character.y > block. y) {
+        //             return true;
+        //     } 
+        //     else {
+        //         return false;
+        //     }
+        // }
         
         
     }
