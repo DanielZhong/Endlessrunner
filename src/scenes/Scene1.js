@@ -20,7 +20,7 @@ class Scene1 extends Phaser.Scene {
         this.level = 370;
         this.gamespeed = 3;
         this.ACCELERATION = 1500;
-        this.JUMP_VELOCITY = -700;
+        this.JUMP_VELOCITY = -900;
         this.MAX_JUMPS = 2;
         this.DRAG = 600;
         this.MAX_X_VEL = 500;   // pixels/second
