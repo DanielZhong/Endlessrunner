@@ -47,7 +47,7 @@ class Scene1 extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(keyR)) {
             this.scene.start('Scene1');
         }
-        this.random = Phaser.Math.RND.integerInRange(1, 600);
+        this.random = Phaser.Math.RND.integerInRange(1, 450);
         if(1 == this.random){
             this.block = this.physics.add.sprite(1500, 660, 'block').setScale(0.5);
             this.block.body.setVelocityX(- this.level);
