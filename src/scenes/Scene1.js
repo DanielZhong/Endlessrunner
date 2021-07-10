@@ -44,6 +44,9 @@ class Scene1 extends Phaser.Scene {
     update() {
         this.background.tilePositionX += this.gamespeed;
         this.ground.tilePositionX += this.gamespeed;
+        this.gamespeed += 0.003;
+        this.level += 0.2;
+        
         if (Phaser.Input.Keyboard.JustDown(keyR)) {
             this.scene.start('Scene1');
         }
