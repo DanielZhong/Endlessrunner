@@ -20,7 +20,7 @@ class Scene1 extends Phaser.Scene {
         this.level = 370;
         this.gamespeed = 3;
         this.ACCELERATION = 1500;
-        this.JUMP_VELOCITY = -700;
+        this.JUMP_VELOCITY = -900;
         this.MAX_JUMPS = 2;
         this.DRAG = 600;
         this.MAX_X_VEL = 500;   // pixels/second
@@ -50,15 +50,23 @@ class Scene1 extends Phaser.Scene {
         if(1 == this.random){
             this.block = this.physics.add.sprite(1500, 660, 'block').setScale(0.5);
             this.block.body.setVelocityX(- this.level);
-            
+            this.block.body.allowGravity = false
+            this.block.body.immovable = true;
+            this.physics.add.collider(this.character, this.block);
         }
         else if (2 == this.random){
             this.block2 = this.physics.add.sprite(1500, 620, 'vblock1').setScale(0.5);
             this.block2.body.setVelocityX(- this.level);
+            this.block2.body.allowGravity = false
+            this.block2.body.immovable = true;
+            this.physics.add.collider(this.character, this.block2);
         }
         else if (3 == this.random){
             this.block3 = this.physics.add.sprite(1500, 585, 'vblock2').setScale(0.5);
             this.block3.body.setVelocityX(- this.level);
+            this.block3.body.allowGravity = false
+            this.block3.body.immovable = true;
+            this.physics.add.collider(this.character, this.block3);
         }
         // check keyboard input
         if(cursors.left.isDown) {
