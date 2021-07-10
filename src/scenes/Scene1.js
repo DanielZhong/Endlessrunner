@@ -8,12 +8,13 @@ class Scene1 extends Phaser.Scene {
         // load image
         this.load.image('background', './assets/background.png');
         this.load.image('road', './assets/road.png');
-        this.load.image('character', './assets/character.png');
+        //this.load.image('character', './assets/character.png');
         this.load.image('block', './assets/block.png');
         this.load.image('vblock1', './assets/verticalblock2.png');
         this.load.image('vblock2', './assets/verticalblock3.png');
         this.load.audio('jump', './assets/jump.wav');
         this.load.audio('dead', './assets/dead.wav');
+        this.load.spritesheet('character', './assets/texture_atlas.png', {frameWidth: 270, frameHeight: 270});
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
     }
@@ -38,6 +39,11 @@ class Scene1 extends Phaser.Scene {
         cursors = this.input.keyboard.createCursorKeys();
 
         this.physics.add.collider(this.character, this.ground);
+
+        this.anims.create({
+            key: 'run',
+            frames: this.anims.generateFrameNames('character', {start: 1, end: 3})
+        });
 
         //score
         this.score = 0;
@@ -78,15 +84,15 @@ class Scene1 extends Phaser.Scene {
             this.block3.body.immovable = true;
             this.physics.add.collider(this.character, this.block3);
         }
-        // check keyboard input
+        // check keyboard input 
         if(cursors.left.isDown) {
             this.character.body.setAccelerationX(-this.ACCELERATION);
             this.character.setFlip(true, false);
-            //this.character.anims.play('walk', true);
+            this.character.anims.play('run', true);
         } else if(cursors.right.isDown) {
             this.character.body.setAccelerationX(this.ACCELERATION);
             this.character.resetFlip();
-            //this.alien.anims.play('walk', true);
+            this.character.anims.play('run', true);
         } else {
             // set acceleration to 0 so DRAG will take over
             this.character.body.setAccelerationX(0);
