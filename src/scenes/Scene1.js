@@ -13,6 +13,7 @@ class Scene1 extends Phaser.Scene {
         this.load.image('vblock1', './assets/verticalblock2.png');
         this.load.image('vblock2', './assets/verticalblock3.png');
         this.load.audio('jump', './assets/jump.wav');
+        this.load.audio('dead', './assets/dead.wav');
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
     }
@@ -38,6 +39,11 @@ class Scene1 extends Phaser.Scene {
 
         this.physics.add.collider(this.character, this.ground);
 
+        //score
+        this.score = 0;
+        this.scoreText = this.add.text(game.config.width, 0, "00000", {fill: "#535353", font: '900 35px Courier', resolution: 5})
+      .setOrigin(1, 0)
+      .setAlpha(0);
     } 
   
 
@@ -103,32 +109,14 @@ class Scene1 extends Phaser.Scene {
 	    if(this.jumping && Phaser.Input.Keyboard.UpDuration(cursors.up)) {
 	    	this.jumps--;
 	    	this.jumping = false;
-            this.sound.play('jump'); //background music
+            this.sound.play('jump'); 
 	    }
 
-
-        // if(this.checkCollision(this.character, this.block)) {
-        //     this.scene.start('over');
-        // }
-        // if (this.checkCollision(this.character, this.block2)) {
-        //     this.scene.start('over');
-        // }
-        // if (this.checkCollision(this.p1Rocket, this.block3)) {
-        //     this.scene.start('over');
-        // }
-        
-        // checkCollision(character, block) {
-        //     if (character.x < block.x + block.width && 
-        //         character.x + character.width > block.x && 
-        //         character.y < block.y + block.height &&
-        //         character.height + character.y > block. y) {
-        //             return true;
-        //     } 
-        //     else {
-        //         return false;
-        //     }
-        // }
-        
-        
+        if (this.character.body.touching.right || this.character.body.touching.left)
+        {
+        // player is dead
+        this.sound.play('dead'); 
+        this.scene.start('over');
+        }
     }
 }
