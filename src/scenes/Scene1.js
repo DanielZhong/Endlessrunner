@@ -4,7 +4,7 @@ class Scene1 extends Phaser.Scene {
     }
 
     preload() {
- 
+
         // load image
         this.load.image('background', './assets/background.png');
         this.load.image('road', './assets/road.png');
@@ -21,8 +21,8 @@ class Scene1 extends Phaser.Scene {
 
     create() {
         this.level = 370;
-        this.gamespeed = 3;
-        this.ACCELERATION = 1500;
+        this.gamespeed = 3// 确定一下这个是什么
+        this.ACCELERATION = 1500;//确定一下这个是什么
         this.JUMP_VELOCITY = -900;
         this.MAX_JUMPS = 2;
         this.DRAG = 600;
@@ -48,8 +48,8 @@ class Scene1 extends Phaser.Scene {
         //score
         this.score = 0;
         this.scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
-    } 
-  
+    }
+
 
     update() {
         this.background.tilePositionX += this.gamespeed;
@@ -58,7 +58,7 @@ class Scene1 extends Phaser.Scene {
         this.level += 0.2;
         this.score += 1;
         this.scoreText.setText('Score: ' + this.score);
-        
+
         if (Phaser.Input.Keyboard.JustDown(keyR)) {
             this.scene.start('Scene1');
         }
@@ -84,7 +84,7 @@ class Scene1 extends Phaser.Scene {
             this.block3.body.immovable = true;
             this.physics.add.collider(this.character, this.block3);
         }
-        // check keyboard input 
+        // check keyboard input
         if(cursors.left.isDown) {
             this.character.body.setAccelerationX(-this.ACCELERATION);
             this.character.setFlip(true, false);
@@ -97,7 +97,7 @@ class Scene1 extends Phaser.Scene {
             // set acceleration to 0 so DRAG will take over
             this.character.body.setAccelerationX(0);
             this.character.body.setDragX(this.DRAG);
-            
+
         }
         // check if alien is grounded
 	    this.character.isGrounded = this.character.body.touching.down;
@@ -105,7 +105,7 @@ class Scene1 extends Phaser.Scene {
 	    if(this.character.isGrounded) {
 	    	this.jumps = this.MAX_JUMPS;
 	    	this.jumping = false;
-	    } 
+	    }
         // allow steady velocity change up to a certain key down duration
 	    if(this.jumps > 0 && Phaser.Input.Keyboard.DownDuration(cursors.up, 150)) {
 	        this.character.body.velocity.y = this.JUMP_VELOCITY;
@@ -115,13 +115,13 @@ class Scene1 extends Phaser.Scene {
 	    if(this.jumping && Phaser.Input.Keyboard.UpDuration(cursors.up)) {
 	    	this.jumps--;
 	    	this.jumping = false;
-            this.sound.play('jump'); 
+            this.sound.play('jump');
 	    }
 
         if (this.character.body.touching.right || this.character.body.touching.left)
         {
         // player is dead
-        this.sound.play('dead'); 
+        this.sound.play('dead');
         this.scene.start('over');
         }
     }
