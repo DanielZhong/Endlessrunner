@@ -22,7 +22,7 @@ class Scene1 extends Phaser.Scene {
     create() {
         this.level = 370;
         this.gamespeed = 3// 确定一下这个是什么
-        this.ACCELERATION = 1500;//确定一下这个是什么
+        this.ACCELERATION = 0;//确定一下这个是什么
         this.JUMP_VELOCITY = -900;
         this.MAX_JUMPS = 2;
         this.DRAG = 600;
