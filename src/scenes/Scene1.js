@@ -21,8 +21,8 @@ class Scene1 extends Phaser.Scene {
 
     create() {
         this.level = 370;
-        this.gamespeed = 0.1// 确定一下这个是什么
-        this.ACCELERATION = 0;//确定一下这个是什么
+        this.gamespeed = 0.1// 背景移动速度
+        this.ACCELERATION = 1000;//玩家移动速度
         this.JUMP_VELOCITY = -900;
         this.MAX_JUMPS = 2;
         this.DRAG = 600;
@@ -55,7 +55,7 @@ class Scene1 extends Phaser.Scene {
         this.background.tilePositionX += this.gamespeed;
         this.ground.tilePositionX += this.gamespeed;
         this.gamespeed += 0;
-        this.level += 0.2;
+        this.level += 0;
         this.score += 1;
         this.scoreText.setText('Score: ' + this.score);
 
