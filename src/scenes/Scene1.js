@@ -55,7 +55,7 @@ class Scene1 extends Phaser.Scene {
         this.background.tilePositionX += this.gamespeed;
         this.ground.tilePositionX += this.gamespeed;
         this.gamespeed += 0;
-        this.level += 0;
+        this.level += 0.001;//障碍物加速
         this.score += 1;
         this.scoreText.setText('Score: ' + this.score);
 
