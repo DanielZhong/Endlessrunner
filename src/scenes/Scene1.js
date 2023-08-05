@@ -54,7 +54,7 @@ class Scene1 extends Phaser.Scene {
     update() {
         this.background.tilePositionX += this.gamespeed;
         this.ground.tilePositionX += this.gamespeed;
-        this.gamespeed += 0.003;
+        this.gamespeed += 0;
         this.level += 0.2;
         this.score += 1;
         this.scoreText.setText('Score: ' + this.score);
