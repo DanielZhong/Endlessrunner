@@ -14,7 +14,7 @@ class Scene1 extends Phaser.Scene {
         this.load.image('vblock2', './assets/verticalblock3.png');
         this.load.audio('jump', './assets/jump.wav');
         this.load.audio('dead', './assets/dead.wav');
-        this.load.spritesheet('character', './assets/texture_atlas.png', {frameWidth: 200, frameHeight: 400});
+        this.load.spritesheet('character', './assets/texture_atlas.png', {frameWidth: 190, frameHeight: 190});
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         keyR = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.R);
     }
